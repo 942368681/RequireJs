@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <script type="text/javascript">
+      /*
+         优点：
+            1.异步加载
+               使用RequireJS，会在相关的js加载后执行回调函数，这个过程是异步的，所以它不会阻塞页面
+
+            2.按需加载
+               通过RequireJS，你可以在需要加载js逻辑的时候再加载对应 的js模块，这样避免了在初始化网页的时候发生大量的请求和数据传输
+
+            3.更加方便的模块依赖管理
+               通过RequireJS的机制，你能确保在所有的依赖模块都加载以后再执行相关的文件，所以可以起到依赖管理的作用
+
+            4.更加高效的版本管理
+               如果你还是用的script脚本引入的方式来引入一个jQuery2.x的文件，然后你有100个页面都是这么引用的，那当你想换成jQuery3.x，那你就不得不去改这100个页面。但是如果你的requireJS有在config中做jQuery的path映射，那你只需要改一处地方即可
+
+            5.cdn加载不到js文件，可以请求本地文件等其它的优点
+
+         概述：
+            对外暴露的变量其实就三个,requirejs,require,define
+
+            requirejs
+               只是require的一个别名，目的是如果页面中有require其它实现了，你还是能通过使用requirejs来使用requireJS API的
+
+            require()
+               调用模块
+            define()
+               定义模块
+            require.config()
+               配置模块
+            data-main属性
+               作用是指定网页程序的主模块
+
+            具体用法
+               require([//依赖的模块，不依赖就为空数组],function (依赖的模块对外的接口){
+                  //加载依赖成功后的回调
+               })
+               define([定义模块时也可能此模块有依赖，那么同样需要先加载依赖，没有则不写],function (){
+                  function a(){}
+                  return a;  //通过return对外提供接口
+               })
+               require.config({
+                  baseUrl:'',//修改根目录
+                  path:{
+                     //在path配置模块ID和路径的映射
+                  },
+                  shim:{
+                  //shim用来转化非AMD规范的模块的
+                     a:{
+                        deps:[],
+                        init:function (){
+                           return '';
+                        }
+                     }
+                  }
+               })
+
+
+
+      */
+   </script>
+</body>
+</html>
